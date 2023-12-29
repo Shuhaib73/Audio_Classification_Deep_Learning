@@ -10,6 +10,7 @@ import time as t
 import base64
 import webbrowser
 from streamlit_option_menu import option_menu
+import streamlit_authenticator as stauth
 import matplotlib.pyplot as plt 
 import seaborn as sns 
 import librosa
