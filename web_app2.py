@@ -133,7 +133,7 @@ def app():
                     st.markdown(f'<div style="background-color:black;">{data}</div>', unsafe_allow_html=True)
 
             elif options == 'Take me to the GitHub repository':
-                webbrowser.open_new_tab('https://github.com/TrainerArshdeep/SoundClassification/tree/main')
+                webbrowser.open_new_tab('https://github.com/TrainerArshdeep/SoundClassification')
 
             # --------------------------------------------------------------------
 
@@ -143,9 +143,6 @@ def app():
                 Audio_f = st.file_uploader("Upload Audio", type=["wav"])
 
                 submit = st.form_submit_button("Predict")
-
-                # with open('FModel.pkl', 'rb') as f:
-                #     models = pickle.load(f)
 
                 # Load the keras model
                 models = load_model('FModel.h5')
