@@ -327,13 +327,13 @@ def app():
             contact_form = """
             <form action="https://formsubmit.co/bursins77@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-zA-Z]{2,}" required>
+                <input type="text" name="name" placeholder="Name" required style="color: #001d3d;">
+                <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-zA-Z]{2,}" required style="color: #001d3d;">
                 <textarea name="Message" placeholder="Your message here"></textarea>
                 <button type="Submit">Send</button>
             </form>            
             """
-
+            
             st.markdown(contact_form, unsafe_allow_html=True)
 
             #Use css style
