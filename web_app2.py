@@ -316,25 +316,7 @@ def app():
             plt.tight_layout()
             sns.despine()
 
-
             left_column.pyplot(fig3, use_container_width=True)
-            
-            # v1_plt = px.bar(
-            #     v1,
-            #     x="Frequency",  # Assuming 'class' is in the index after reset_index
-            #     y="Sound",
-            #     title="<b>Frequency Distribution</b>",
-            #     color_discrete_sequence=["#48cae4"],
-            #     template="plotly_white",
-            # )
-
-            # v1_plt.update_layout(
-            #     plot_bgcolor="rgba(0,0,0,0)",
-            #     paper_bgcolor="rgba(0,0,0,0)",
-            #     xaxis=dict(showgrid=False),  # Updated to use 'dict' instead of '('
-            # )
-            # st.plotly_chart(v1_plt)
-
 
         if selected == "Contact":
 
@@ -346,7 +328,7 @@ def app():
             <form action="https://formsubmit.co/bursins77@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}" required>
+                <input type="email" name="email" placeholder="Email" pattern="[a-zA-Z]+[0-9]*@[a-zA-Z]+\.[a-zA-Z]{2,}" required>
                 <textarea name="Message" placeholder="Your message here"></textarea>
                 <button type="Submit">Send</button>
             </form>            
@@ -360,6 +342,7 @@ def app():
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
             Style_css("Style_css.css")
+
 
 def main():
     app()
