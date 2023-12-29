@@ -1,1 +1,2 @@
 streamlit-authenticator
+streamlit-option-menu
