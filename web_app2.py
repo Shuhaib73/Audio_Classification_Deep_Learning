@@ -69,7 +69,7 @@ def app():
 
         return df
 
-    df = get_data
+    df = get_data()
     
     web_customes()
 
