@@ -12,4 +12,3 @@ librosa==0.10.1
 resampy==0.4.2
 tensorflow==2.15.0
 keras==2.15.0
-webbrowser
