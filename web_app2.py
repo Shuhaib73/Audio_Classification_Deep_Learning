@@ -16,6 +16,7 @@ import librosa
 from sklearn.preprocessing import LabelEncoder
 import io 
 import resampy
+from keras.models import load_model
 
 
 def get_background(filename):
@@ -68,7 +69,7 @@ def app():
 
         return df
 
-    df = get_data()
+    df = get_data
     
     web_customes()
 
@@ -143,14 +144,17 @@ def app():
 
                 submit = st.form_submit_button("Predict")
 
-                with open('FModel.pkl', 'rb') as f:
-                    models = pickle.load(f)
+                # with open('FModel.pkl', 'rb') as f:
+                #     models = pickle.load(f)
 
-                    class_labels = ['dog_bark', 'children_playing', 'car_horn', 'air_conditioner','street_music', 'gun_shot', 'siren', 'engine_idling', 'jackhammer','drilling']
-                    
-                    #  Initialize and fit the LabelEncoder
-                    encoder = LabelEncoder()
-                    encoder.fit(class_labels)
+                # Load the keras model
+                models = load_model('FModel.h5')
+
+                class_labels = ['dog_bark', 'children_playing', 'car_horn', 'air_conditioner','street_music', 'gun_shot', 'siren', 'engine_idling', 'jackhammer','drilling']
+                
+                #  Initialize and fit the LabelEncoder
+                encoder = LabelEncoder()
+                encoder.fit(class_labels)
 
                 if submit:
 
