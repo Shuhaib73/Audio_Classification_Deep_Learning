@@ -1,4 +1,4 @@
-
+# Import necessary libraries
 import pickle
 from pathlib import Path
 import streamlit as st 
@@ -18,10 +18,11 @@ import io
 import resampy
 from keras.models import load_model
 
+# Function to set the background using an image file
 
-def get_background(filename):
+def get_background(filename):                                                              
 
-    # # Set the background image format
+    # Set the background image format
     main_bg_ext = "png"
         
     # Main page Background
@@ -41,7 +42,9 @@ def get_background(filename):
         unsafe_allow_html=True
     )
 
-def web_customes():
+# Function to customize the web layout by hiding certain elements
+
+def web_customes():                                                                         
     hide_st_style = """
         <style>
         #MainMenu {visibility: hidden;}
@@ -52,6 +55,9 @@ def web_customes():
 
     return st.markdown(hide_st_style, unsafe_allow_html=True)
 
+
+# Function to display a success message while logging in
+
 @st.cache_resource
 def loading_msg():
     success_message = st.success("Logging in")
@@ -59,45 +65,52 @@ def loading_msg():
     success_message.empty()
 
 
+# Main application function
+    
 def app():
 
     st.set_page_config(page_title="Audio_Classification", page_icon=":Info", layout="centered")
 
+    # Function to get data from a CSV file (cached for efficiency)
     @st.cache_data
     def get_data():
         df = pd.read_csv("merged_df.csv", index_col=None)
 
         return df
 
-    df = get_data()
+    df = get_data()             # Read the data
     
-    web_customes()
+    web_customes()              # Customize the web layout
 
-    get_background("robo.png")
+    get_background("robo.png")  # Set the main background
 
     #--------------------------------------------------
     st.markdown("<h2 style='text-align: center; color: #6c757d; font-size: 1px;'>Welcome Back!</h2>", unsafe_allow_html=True)
+    #--------------------------------------------------
 
     # User-Authentication
 
     usernames = ['Admin','Shuhaib']
     names = ['name1','name2']
     
+    # Read hashed passwords from a file
     file_path = Path(__file__).parent / "hashed_pw.pkl"
     with file_path.open("rb") as file:
         hashed_passwords = pickle.load(file)
 
 
     credentials = {"usernames":{}}
-            
+    
+    # Create a dictionary with usernames, names, and hashed passwords
     for uname, name, pwd in zip(usernames, names, hashed_passwords):
         user_dict = {"name": name, "password": pwd}
         credentials["usernames"].update({uname: user_dict})
 
-    
+    # Set up user authentication
     authenticator = stauth.Authenticate(credentials, "Audio_Classification", "random_key", cookie_expiry_days=0)
     name, authentication_status, username = authenticator.login('Login', 'main')
-
+    
+    # Handle authentication status
     if authentication_status == None:
         st.markdown("<h3 style='text-align: center; color: #6c757d; font-size: 16px;'>Please Enter the Username and Password</h3>", unsafe_allow_html=True)
 
@@ -106,7 +119,7 @@ def app():
     elif authentication_status == True:
         loading_msg()
     
-
+    # If authentication is successful
     if authentication_status:
 
         selected = option_menu(
@@ -118,15 +131,18 @@ def app():
             orientation="horizontal",
         )
 
+        # Handle different menu selections
         if selected == "Model":
 
-            get_background("robo1.png")
+            get_background("robo1.png")             # Set background for model section
             
-            # Description
+            # Display options for the Model section                                        
             options = st.selectbox(
                 'Would you like to know more about this project?',
                 (' ', 'Description', 'Take me to the GitHub repository'))
             
+            # Handle different options in the Model section
+
             if options == 'Description':
                 with open('Description.html', 'r', encoding='utf-8') as f:
                     data = f.read()
@@ -137,7 +153,7 @@ def app():
 
             # --------------------------------------------------------------------
 
-            # Audio file uploading
+            # Audio file uploading section
             with st.form(key='form', clear_on_submit=False):
                 
                 Audio_f = st.file_uploader("Upload Audio", type=["wav"])
@@ -147,12 +163,14 @@ def app():
                 # Load the keras model
                 models = load_model('FModel.h5')
 
+                # Define class labels
                 class_labels = ['dog_bark', 'children_playing', 'car_horn', 'air_conditioner','street_music', 'gun_shot', 'siren', 'engine_idling', 'jackhammer','drilling']
                 
                 #  Initialize and fit the LabelEncoder
                 encoder = LabelEncoder()
                 encoder.fit(class_labels)
-
+                
+                # Handle form submission
                 if submit:
 
                     if Audio_f is not None:
@@ -180,16 +198,16 @@ def app():
                     else:
                         st.warning("Please upload the Audio file")
         
-            # ----------------------------------------------------------
-
+            
+            # Logout after using the Model section
             authenticator.logout("Logout", "main")
 
 
         if selected == "Info":
 
-            get_background("tech_bg4.png")
+            get_background("tech_bg4.png")                      # Set background for Info section
             
-            # st.info("Table")
+            # Display information about the data
             if 'number_of_rows' not in st.session_state:
                 st.session_state['number_of_rows'] = 5
 
@@ -200,7 +218,6 @@ def app():
                 st.session_state['number_of_rows'] = increment
 
             # Input for target classes in the sidebar
-            
             st.sidebar.markdown("<h2 style='text-align: center; color: #ff758f; font-size: 18px;'>Please Filter Here:</h2>", unsafe_allow_html=True)
 
             target_class = st.sidebar.multiselect(
@@ -290,7 +307,6 @@ def app():
             right_column.pyplot(fig2, use_container_width=True)
 
             # Visual 3
-
             cls_name = df['class'].unique()
             explode = [0.03 for cls in cls_name]
 
@@ -318,12 +334,15 @@ def app():
 
             left_column.pyplot(fig3, use_container_width=True)
 
+
         if selected == "Contact":
 
             get_background("robo1.png")
             
+            # Display a heading for the Contact section
             st.markdown("<h2 style='text-align: center; color: #ced4da; font-size: 22px;'><span style='margin-right: 10px;'>📬</span>Get In Touch with us!</h2>", unsafe_allow_html=True)
 
+            # Contact form HTML code
             contact_form = """
             <form action="https://formsubmit.co/bursins77@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
@@ -334,9 +353,10 @@ def app():
             </form>            
             """
             
+            # Display the contact form
             st.markdown(contact_form, unsafe_allow_html=True)
 
-            #Use css style
+            #Apply css style
             def Style_css(file_name):
                 with open(file_name) as f:
                     st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
@@ -344,10 +364,11 @@ def app():
             Style_css("Style_css.css")
 
 
+# Main function to run the app
 def main():
     app()
 
-
+# Run the main function if the script is executed directly
 if __name__  == '__main__':
     main()
 
