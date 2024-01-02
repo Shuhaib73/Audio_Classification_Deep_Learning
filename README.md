@@ -8,7 +8,7 @@
 
 ## **Problem Statement**
 ### In this project, our main goal is to build a sophisticated audio classification system using Artificial Neural Networks (ANN) based on deep learning techniques.
-```The dataset comprises 8732 labeled sound excerpts (4s each) from ten urban sound categories. These include air for audio prediction, car horns, children playing, dog barking, drilling, engine idling, gunshots, jackhammers, sirens, and street music. Before model development, we perform basic data preprocessing and feature extraction on audio signals. Each model is then evaluated based on accuracy, training time, and prediction time. Model deployment allows users to load a desired sound output for successful deployment, discussed in detail.```
+    * The dataset comprises 8732 labeled sound excerpts (4s each) from ten urban sound categories. These include air for audio prediction, car horns, children playing, dog barking, drilling, engine idling, gunshots, jackhammers, sirens, and street music. Before model development, we perform basic data preprocessing and feature extraction on audio signals. Each model is then evaluated based on accuracy, training time, and prediction time. Model deployment allows users to load a desired sound output for successful deployment, discussed in detail.
 
 ### Machine Learning Models used in the project:
 #### The project compares the results of different techniques :
@@ -19,12 +19,18 @@
 ##### - XGB Boost
 
 ## The project pipeline can be summarized in the following steps: 
-#### **Data Understanding and Exploration** : This phase involves loading the data and Explore the characteristics of the available features. Understanding the data helps us select the relevant features for our final model.  
-#### <strong>Data Preprocessing</strong>: Handle missing values, outliers, and any data cleansing tasks. Consider feature engineering or transformation to enhance model performance.
-#### <strong>Feature Selection and Engineering</strong>: Refine feature selection based on insights from EDA. Experiment with feature engineering techniques to improve model predictability.
-#### <strong>Model Building and Hyperparameter Tuning</strong>: Explore various machine learning and Deep Learning models, especially Artificial Neural Networks (ANN), and fine-tune hyperparameters.
-#### <strong>Model Evaluation</strong>: Assess the performance of the model using appropriate metrics, with a focus on accurately classifying different audio classes.
-#### <strong>Deployment</strong>: Deployed the finalized model, potentially as a web application using Streamlit.
+#### **Data Understanding and Exploration** : 
+    * This phase involves loading the data and Explore the characteristics of the available features. Understanding the data helps us select the relevant features for our final model.  
+#### <strong>Data Preprocessing</strong>: 
+    * Handle missing values, outliers, and any data cleansing tasks. Consider feature engineering or transformation to enhance model performance.
+#### <strong>Feature Selection and Engineering</strong>: 
+    *  Refine feature selection based on insights from EDA. Experiment with feature engineering techniques to improve model predictability.
+#### <strong>Model Building and Hyperparameter Tuning</strong>: 
+    * Explore various machine learning and Deep Learning models, especially Artificial Neural Networks (ANN), and fine-tune hyperparameters.
+#### <strong>Model Evaluation</strong>: 
+    * Assess the performance of the model using appropriate metrics, with a focus on accurately classifying different audio classes.
+#### <strong>Deployment</strong>: 
+    * Deployed the finalized model, potentially as a web application using Streamlit.
 ``` To deploy the audio classification system model, I have utilized Streamlit.``` You can access the web application by following this link: [https://shuhaib73.streamlit.app/](https://audioclassification.streamlit.app/)
 
 
