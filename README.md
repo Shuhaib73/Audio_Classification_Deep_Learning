@@ -4,13 +4,13 @@
   <img src='https://github.com/Shuhaib73/Classification_ML_Mushrooms_Project/blob/main/mus_ims.jpg' />
 </p> -->
 You can access the web application[Audio classification system] by following this link: [https://shuhaib73.streamlit.app/](https://audioclassification.streamlit.app/)
-#### *The objective of this application is to perform audio classification to swiftly analyse audio files (.wav format) and provide a rapid classification of the sound into its respective class. The application utilizes the power of ANN’s i.e. Artificial Neural Networks to reliably predict the sound class with remarkable accuracy and precision.*
+##### *The objective of this application is to perform audio classification to swiftly analyse audio files (.wav format) and provide a rapid classification of the sound into its respective class. The application utilizes the power of ANN’s i.e. Artificial Neural Networks to reliably predict the sound class with remarkable accuracy and precision.*
 
 ## **Problem Statement**
 ### In this project, our main goal is to build a sophisticated audio classification system using Artificial Neural Networks (ANN) based on deep learning techniques.
     * The dataset comprises 8732 labeled sound excerpts (4s each) from ten urban sound categories. These include air for audio prediction, car horns, children playing, dog barking, drilling, engine idling, gunshots, jackhammers, sirens, and street music. Before model development, we perform basic data preprocessing and feature extraction on audio signals. Each model is then evaluated based on accuracy, training time, and prediction time. Model deployment allows users to load a desired sound output for successful deployment, discussed in detail.
 
-### Machine Learning Models used in the project:
+### Machine Learning & Deep Learning Models used in the project:
 #### The project compares the results of different techniques :
 ##### - Artificial Neural Networks (ANN)
 ##### - Decision Tree
