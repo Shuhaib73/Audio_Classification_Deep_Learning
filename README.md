@@ -4,7 +4,7 @@
   <img src='https://github.com/Shuhaib73/Classification_ML_Mushrooms_Project/blob/main/mus_ims.jpg' />
 </p> -->
 You can access the web application[Audio classification system] by following this link: [https://shuhaib73.streamlit.app/](https://audioclassification.streamlit.app/)
-##### *The objective of this application is to perform audio classification to swiftly analyse audio files (.wav format) and provide a rapid classification of the sound into its respective class. The application utilizes the power of ANN’s i.e. Artificial Neural Networks to reliably predict the sound class with remarkable accuracy and precision.*
+#### *The objective of this application is to perform audio classification to swiftly analyse audio files (.wav format) and provide a rapid classification of the sound into its respective class. The application utilizes the power of ANN’s i.e. Artificial Neural Networks to reliably predict the sound class with remarkable accuracy and precision.*
 
 ## **Problem Statement**
 ### In this project, our main goal is to build a sophisticated audio classification system using Artificial Neural Networks (ANN) based on deep learning techniques.
