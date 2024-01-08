@@ -42,6 +42,7 @@ def get_background(filename):
         unsafe_allow_html=True
     )
 
+
 # Function to customize the web layout by hiding certain elements
 
 def web_customes():                                                                         
@@ -82,7 +83,7 @@ def app():
     
     web_customes()              # Customize the web layout
 
-    get_background("robo.png")  # Set the main background
+    get_background("sound.png")  # Set the main background
 
     #--------------------------------------------------
     st.markdown("<h2 style='text-align: center; color: #6c757d; font-size: 1px;'>Welcome Back!</h2>", unsafe_allow_html=True)
@@ -112,7 +113,7 @@ def app():
     
     # Handle authentication status
     if authentication_status == None:
-        st.markdown("<h3 style='text-align: center; color: #6c757d; font-size: 16px;'>Please Enter the Username and Password</h3>", unsafe_allow_html=True)
+        st.markdown("<h3 style='text-align: center; color: #FFFFF; font-size: 16px;'>Please Enter the Username and Password</h3>", unsafe_allow_html=True)
 
     if authentication_status == False:
         st.error("Username / Password is incorrect")
@@ -134,7 +135,7 @@ def app():
         # Handle different menu selections
         if selected == "Model":
 
-            get_background("robo1.png")             # Set background for model section
+            get_background("sound1.png")             # Set background for model section
             
             # Display options for the Model section                                        
             options = st.selectbox(
